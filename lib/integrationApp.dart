@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:integration_flutter_app/design/colors.dart';
+import 'package:integration_flutter_app/misc/design/colors.dart';
 
 import 'components/dashboard/ui/integration_dashboard.dart';
 
@@ -13,7 +13,7 @@ class IntegrationApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: purpleColor,
       ),
-      home: IntegrationDashboard(title: 'Dashboard'),
+      home: const IntegrationDashboard(),
     );
   }
 }
