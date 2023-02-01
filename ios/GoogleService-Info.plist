@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>184042334389-p46qf316ejs4af4od0591ol212b022tg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.184042334389-p46qf316ejs4af4od0591ol212b022tg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAnFcl61k6RmCoVFrfbMg9l-ikf1gonnVA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>184042334389</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.integrationFlutterApp</string>
+	<key>PROJECT_ID</key>
+	<string>integrationsseminar-af719</string>
+	<key>STORAGE_BUCKET</key>
+	<string>integrationsseminar-af719.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:184042334389:ios:0fc69d6dc7923952beb6fc</string>
+	<key>DATABASE_URL</key>
+	<string>https://integrationsseminar-af719-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

@@ -5,28 +5,41 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:integration_flutter_app/components/dashboard/bloc/item_list_cubit.dart';
+import 'package:integration_flutter_app/core/services/global_bloc_provider.dart';
 import 'package:integration_flutter_app/core/services/service_locator.dart';
 import 'package:integration_flutter_app/integrationapp.dart';
 import 'dart:developer' as developer;
 
-void main() {
-  runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-    /// Set Rotation
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
+      // Set Rotation only to portraitmode
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
 
-    /// sets up the global service locator
-    setupServices();
+      // sets up the global service locator
+      setupServices();
 
-    /// initialize Firebase
-    await Firebase.initializeApp();
-    FirebaseDatabase.instance.setPersistenceEnabled(true);
-    FirebaseFirestore.instance.settings =
-        const Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
-  }, ((error, stack) => developer.log("Error on Startup", error: error)));
-  runApp(IntegrationApp());
+      // initialize Firebase
+      await Firebase.initializeApp();
+      FirebaseDatabase.instance.setPersistenceEnabled(true);
+      FirebaseFirestore.instance.settings =
+          const Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
+
+      // run the app
+      runApp(
+        // wrap with EasyLocalizations
+
+        const GlobalBlocProvider(
+          child: IntegrationApp(),
+        ),
+      );
+    },
+    (e, stack) => print(e),
+  );
 }

@@ -13,7 +13,7 @@ class IntegrationApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: purpleColor,
       ),
-      home: const IntegrationDashboard(),
+      home: IntegrationDashboard(),
     );
   }
 }

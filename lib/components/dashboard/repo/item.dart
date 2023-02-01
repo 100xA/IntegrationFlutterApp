@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
+import 'dart:convert';
 
 class ItemMachine extends Equatable {
+  final String? id;
   final String? name;
   final int? serialNumber;
   final String? currentProblems;
@@ -29,11 +31,21 @@ class ItemMachine extends Equatable {
   }
 
   const ItemMachine({
+    this.id,
     required this.name,
     required this.serialNumber,
     required this.currentProblems,
     required this.machine,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      "name": name,
+      "serialNumber": serialNumber,
+      "currentProblems": currentProblems,
+      "machine": machine,
+    };
+  }
 
   factory ItemMachine.fromJson(Map<String, dynamic> map) => ItemMachine(
       name: map["name"] as String?,
@@ -41,25 +53,40 @@ class ItemMachine extends Equatable {
       currentProblems: map["currentProblems"] as String?,
       machine: map["machine"] as int? ?? ItemMachine.machineUndefined);
 
-  Map<String, dynamic> toJson() => {
-        "name": name,
-        "serialNumber": serialNumber,
-        "currentProblems": currentProblems,
-        "machine": machine,
-      };
+  factory ItemMachine.fromMap(Map<String, dynamic> map) {
+    return ItemMachine(
+      name: map["name"] as String,
+      serialNumber: map["serialNumber"] as int,
+      currentProblems: map["currentProblems"] as String,
+      machine: map["machine"] as int,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  @override
+  bool get stringify => true;
 
   ItemMachine copyWith({
+    String? id,
     String? name,
     int? serialNumber,
     String? currentProblems,
     int? machine,
   }) =>
       ItemMachine(
+          id: id ?? this.id,
           name: name ?? this.name,
           serialNumber: serialNumber ?? this.serialNumber,
           currentProblems: currentProblems ?? this.currentProblems,
           machine: machine ?? this.machine);
 
   @override
-  List<Object?> get props => [name, serialNumber, currentProblems, machine];
+  List<Object?> get props => [
+        id,
+        name,
+        serialNumber,
+        currentProblems,
+        machine,
+      ];
 }
