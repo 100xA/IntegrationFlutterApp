@@ -5,11 +5,10 @@ import 'package:integration_flutter_app/components/dashboard/repo/item.dart';
 import 'package:integration_flutter_app/misc/widgets/dashboard_item.dart';
 import 'package:integration_flutter_app/misc/widgets/integration_dashboard_drawer.dart';
 
-import '../../../core/services/service_locator.dart';
 import '../bloc/item_list_state.dart';
 
 class IntegrationDashboard extends StatelessWidget {
-  final ItemListCubit _itemListCubit = app.get<ItemListCubit>();
+  const IntegrationDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +30,8 @@ class IntegrationDashboard extends StatelessWidget {
                   final ItemMachine itemMachine = state.itemMachineList[index];
 
                   return DashboardItem(
-                      name: itemMachine.name!,
-                      serialNumber: itemMachine.serialNumber!,
-                      currentProblems: itemMachine.currentProblems!,
-                      type: itemMachine.machine!);
+                    itemMachine: itemMachine,
+                  );
                 }),
                 itemCount: state.itemMachineList.length,
               ),

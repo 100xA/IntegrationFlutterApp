@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:integration_flutter_app/misc/design/colors.dart';
 import 'package:integration_flutter_app/misc/widgets/integration_back_button.dart';
 
 class IntegrationAppBarAction {
@@ -69,7 +70,7 @@ class IntegrationAppBar extends StatelessWidget with PreferredSizeWidget {
     return Theme(
         data: Theme.of(context).copyWith(splashColor: Colors.transparent),
         child: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: purpleColor,
           elevation: 0,
           leading: _getLeading(),
           leadingWidth: leading != null ? 200 : 50,
@@ -99,8 +100,9 @@ class IntegrationAppBar extends StatelessWidget with PreferredSizeWidget {
                                   children: [
                                     Text(
                                       e.title,
-                                      style:
-                                          Theme.of(context).textTheme.headline5,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineSmall,
                                     ),
                                     if (e.icon != null)
                                       Icon(

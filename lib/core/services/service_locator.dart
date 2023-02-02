@@ -4,5 +4,5 @@ import 'package:integration_flutter_app/components/dashboard/bloc/item_list_cubi
 final GetIt app = GetIt.instance;
 
 void setupServices() {
-  app..registerLazySingleton<ItemListCubit>(() => ItemListCubit());
+  app.registerLazySingleton<ItemListCubit>(() => ItemListCubit());
 }

@@ -7,6 +7,7 @@ class GlobalBlocProvider extends StatelessWidget {
   final Widget child;
 
   const GlobalBlocProvider({
+    super.key,
     required this.child,
   });
 
@@ -15,7 +16,9 @@ class GlobalBlocProvider extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ItemListCubit>.value(
-            value: app.get<ItemListCubit>()..initialize())
+            value: app.get<ItemListCubit>()..initialize()),
+        /*BlocProvider<ItemDetailCubit>.value(
+            value: app.get<ItemDetailCubit>()..initialize())*/
       ],
       child: child,
     );

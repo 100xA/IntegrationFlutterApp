@@ -5,8 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:integration_flutter_app/components/dashboard/bloc/item_list_cubit.dart';
-import 'package:integration_flutter_app/core/services/global_bloc_provider.dart';
+import 'core/widgets/global_bloc_provider.dart';
 import 'package:integration_flutter_app/core/services/service_locator.dart';
 import 'package:integration_flutter_app/integrationapp.dart';
 import 'dart:developer' as developer;
@@ -40,6 +39,6 @@ void main() async {
         ),
       );
     },
-    (e, stack) => print(e),
+    (e, stack) => developer.log(stack.toString()),
   );
 }

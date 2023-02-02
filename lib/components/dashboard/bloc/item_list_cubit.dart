@@ -1,9 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:integration_flutter_app/components/dashboard/bloc/item_detail_cubit.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_list_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:integration_flutter_app/components/dashboard/repo/item.dart';
 import 'package:integration_flutter_app/components/dashboard/repo/item_repository.dart';
+import 'package:integration_flutter_app/components/dashboard/ui/item_detail_screen.dart';
 
 class ItemListCubit extends Cubit<ItemListState> {
   ItemListCubit() : super(const ItemListState());
@@ -35,5 +38,17 @@ class ItemListCubit extends Cubit<ItemListState> {
       currentProblems: "No Problems",
       machine: 2,
     ));
+  }
+
+  Future<void> openItem(
+      final ItemMachine itemMachine, BuildContext context) async {
+    final ItemDetailCubit itemDetailCubit = ItemDetailCubit(itemMachine);
+
+    final page = BlocProvider<ItemDetailCubit>.value(
+      value: itemDetailCubit..initialize(),
+      child: ItemDetailScreen(itemDetailCubit),
+    );
+    await Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => page));
   }
 }
