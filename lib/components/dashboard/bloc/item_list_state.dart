@@ -5,6 +5,7 @@ class ItemListState extends Equatable {
   final bool loading;
   final String error;
   final String search;
+
   final List<ItemMachine> itemMachineList;
 
   const ItemListState({

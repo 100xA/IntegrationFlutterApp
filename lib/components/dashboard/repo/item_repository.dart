@@ -4,12 +4,15 @@ import 'package:integration_flutter_app/components/dashboard/repo/item.dart';
 class ItemRepository {
   static final ItemRepository _instance = ItemRepository._internal();
 
+  // Getter Singleton Instance of ItemRepo
   static ItemRepository get instance => _instance;
 
   static ItemRepository get I => _instance;
 
+  // Internal Constructor
   ItemRepository._internal();
 
+  // Instanciate FirebaseCollection from Firebase in [items]
   final CollectionReference _itemCollection =
       FirebaseFirestore.instance.collection("items");
 
@@ -22,6 +25,7 @@ class ItemRepository {
         : null;
   }
 
+  // create Document
   Future<DocumentReference> create({required ItemMachine itemMachine}) async {
     return _itemCollection.add(itemMachine.toMap());
   }
@@ -49,6 +53,7 @@ class ItemRepository {
                 .toList(),
           );
 
+  // get All itemMachines in a list
   Future<List<ItemMachine>> getAll() async {
     final QuerySnapshot snapshot = await _itemCollection.get();
     return snapshot.docs

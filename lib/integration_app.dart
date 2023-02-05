@@ -11,6 +11,7 @@ class IntegrationApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dashboard',
+      // Access global theme
       theme: ThemeData(
         primarySwatch: purpleColor,
       ),

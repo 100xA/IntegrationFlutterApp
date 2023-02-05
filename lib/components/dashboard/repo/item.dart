@@ -18,6 +18,8 @@ class ItemMachine extends Equatable {
     ItemMachine.machineSorter,
   ];
 
+  // reverts [int] machineType to specific description
+
   static String machineTypeFilter(int id) {
     switch (id) {
       case 0:
