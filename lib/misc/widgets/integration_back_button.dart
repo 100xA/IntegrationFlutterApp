@@ -11,7 +11,7 @@ class IntegrationBackButton extends StatelessWidget {
         onBackAction?.call();
         Navigator.of(context).maybePop();
       },
-      child: const Icon(Icons.chevron_left_rounded, color: Colors.black),
+      child: const Icon(Icons.chevron_left_rounded, color: Colors.white),
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:integration_flutter_app/components/profile/bloc/profile_cubit.dart';
+import 'package:integration_flutter_app/components/profile/ui/profile_screen.dart';
 
 class IntegrationDashboardDrawer extends StatelessWidget {
   const IntegrationDashboardDrawer({super.key});
@@ -21,16 +23,15 @@ class IntegrationDashboardDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            title: const Text("Personalisierung"),
-            onTap: () {},
-          ),
-          ListTile(
             title: const Text("Aufgabenverwaltung"),
             onTap: () {},
           ),
           ListTile(
-            title: const Text("Übersicht Lager"),
-            onTap: () {},
+            title: const Text("Profil"),
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ProfileScreen()));
+            },
           ),
         ],
       ),

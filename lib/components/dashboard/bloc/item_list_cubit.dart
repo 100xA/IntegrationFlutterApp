@@ -33,7 +33,7 @@ class ItemListCubit extends Cubit<ItemListState> {
   }
 
   // Create test Event on Startup - needs to be activated during the startup process
-  Future<void> createSimpleEventonStartup() async {
+  Future<void> createSimpleEventOnStartup() async {
     await _itemRepository.create(
         itemMachine: const ItemMachine(
       name: "TestMachine",

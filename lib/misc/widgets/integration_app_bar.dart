@@ -108,7 +108,7 @@ class IntegrationAppBar extends StatelessWidget with PreferredSizeWidget {
                                       Icon(
                                         e.icon,
                                         size: 20,
-                                        color: Colors.black,
+                                        color: Colors.white,
                                       )
                                   ],
                                 ),
@@ -127,7 +127,7 @@ class IntegrationAppBar extends StatelessWidget with PreferredSizeWidget {
                           child: forceFirstAction == ""
                               ? const Icon(
                                   Icons.more_vert,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 )
                               : getIndicatorText(context, forceFirstAction),
                         ),

@@ -12,7 +12,7 @@ class ItemRepository {
   // Internal Constructor
   ItemRepository._internal();
 
-  // Instanciate FirebaseCollection from Firebase in [items]
+  // Instantiate FirebaseCollection from Firebase in [items]
   final CollectionReference _itemCollection =
       FirebaseFirestore.instance.collection("items");
 
