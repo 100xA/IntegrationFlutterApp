@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:integration_flutter_app/misc/design/colors.dart';
 import 'package:integration_flutter_app/misc/widgets/integration_back_button.dart';
 
+/// Allows customizable actions for [IntegrationAppBar]
 class IntegrationAppBarAction {
   final IconData? icon;
   final String title;
@@ -14,6 +15,7 @@ class IntegrationAppBarAction {
   });
 }
 
+/// Global [AppBar] for all Screens with customizable [Actions] and [PopupMenu]
 class IntegrationAppBar extends StatelessWidget with PreferredSizeWidget {
   final Widget title;
   final List<IntegrationAppBarAction>? actions;

@@ -18,20 +18,6 @@ class ItemMachine extends Equatable {
     ItemMachine.machineSorter,
   ];
 
-  // reverts [int] machineType to specific description
-
-  static String machineTypeFilter(int id) {
-    switch (id) {
-      case 0:
-        return "Printer";
-      case 1:
-        return "Sorter Machine";
-      case 99:
-      default:
-        return "Unknown";
-    }
-  }
-
   const ItemMachine({
     this.id,
     required this.name,

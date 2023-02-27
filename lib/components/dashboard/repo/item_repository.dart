@@ -4,15 +4,15 @@ import 'package:integration_flutter_app/components/dashboard/repo/item.dart';
 class ItemRepository {
   static final ItemRepository _instance = ItemRepository._internal();
 
-  // Getter Singleton Instance of ItemRepo
+  /// Getter Singleton Instance of [ItemRepository]
   static ItemRepository get instance => _instance;
 
   static ItemRepository get I => _instance;
 
-  // Internal Constructor
+  /// Internal Constructor
   ItemRepository._internal();
 
-  // Instantiate FirebaseCollection from Firebase in [items]
+  /// Instantiate FirebaseCollection from Firebase in [items]
   final CollectionReference _itemCollection =
       FirebaseFirestore.instance.collection("items");
 
@@ -25,50 +25,44 @@ class ItemRepository {
         : null;
   }
 
-  // create Document
+  /// create [ItemMachine] Document
   Future<DocumentReference> create({required ItemMachine itemMachine}) async {
     return _itemCollection.add(itemMachine.toMap());
   }
 
+  /// delete [ItemMachine] Document based on id
   Future<void> delete({required String id}) async {
     return _itemCollection.doc(id).delete();
   }
 
+  /// [ItemMachineStream] that pushes/listens to every stream
   Stream<List<ItemMachine>> get itemMachineStream =>
       _itemCollection.snapshots().map(
             (QuerySnapshot query) => query.docs
                 .map((QueryDocumentSnapshot doc) {
-                  // get data
                   final data = doc.data();
-                  // if data is null return null
                   return data != null
                       ? ItemMachine.fromMap(data as Map<String, dynamic>)
                           .copyWith(id: doc.id)
                       : null;
                 })
-                // remove all null values
                 .where((e) => e != null)
-                // cast to not nullable list
                 .cast<ItemMachine>()
                 .toList(),
           );
 
-  // get All itemMachines in a list
+  /// transform [ItemMachine] into a list
   Future<List<ItemMachine>> getAll() async {
     final QuerySnapshot snapshot = await _itemCollection.get();
     return snapshot.docs
         .map((QueryDocumentSnapshot doc) {
-          // get data
           final data = doc.data();
-          // if data is null return null
           return data != null
               ? ItemMachine.fromMap(data as Map<String, dynamic>)
                   .copyWith(id: doc.id)
               : null;
         })
-        // remove all null values
         .where((e) => e != null)
-        // cast to not nullable list
         .cast<ItemMachine>()
         .toList();
   }

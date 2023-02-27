@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Attachable [IntegrationBackButton] for [IntegrationAppBar]
 class IntegrationBackButton extends StatelessWidget {
   final VoidCallback? onBackAction;
   const IntegrationBackButton({Key? key, this.onBackAction}) : super(key: key);

@@ -4,6 +4,7 @@ import 'package:integration_flutter_app/components/profile/bloc/profile_cubit.da
 
 final GetIt app = GetIt.instance;
 
+/// register all necessary [Services] with [Get-it]
 void setupServices() {
   app
     ..registerLazySingleton<ItemListCubit>(() => ItemListCubit())

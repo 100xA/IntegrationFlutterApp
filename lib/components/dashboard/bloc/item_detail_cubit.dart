@@ -6,6 +6,7 @@ class ItemDetailCubit extends Cubit<ItemDetailState> {
   ItemDetailCubit(ItemMachine itemMachine)
       : super(ItemDetailState(itemMachine: itemMachine));
 
+  /// initialize the specific [ItemMachine] to be opened with [openItem] int [ItemListCubit]
   Future<void> initialize() async {
     emit(state.copyWith(itemMachine: state.itemMachine));
   }

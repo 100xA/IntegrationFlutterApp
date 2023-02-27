@@ -15,14 +15,14 @@ class ItemListCubit extends Cubit<ItemListState> {
 
   StreamSubscription? _itemMachineSubscription;
 
-  // inits the Cubit for the Subscription
+  /// initiliazes the [ItemListCubit] for the Subscription
   Future<void> initialize() async {
     emit(state.copyWith(error: "", loading: true));
     initItemMachines((p0) => null);
     emit(state.copyWith(loading: false));
   }
 
-  // Subscribes to potential changes
+  /// Subscribe to [ItemMachineStream] to initiate all [ItemMachines]
   void initItemMachines(Function(List<ItemMachine>) callBack) {
     _itemMachineSubscription?.cancel();
     _itemMachineSubscription =
@@ -32,8 +32,8 @@ class ItemListCubit extends Cubit<ItemListState> {
     });
   }
 
-  // Create test Event on Startup - needs to be activated during the startup process
-  Future<void> createSimpleEventOnStartup() async {
+  /// Create simple [ItemMachine] - not production code
+  Future<void> createSimpleItemMachineOnStartup() async {
     await _itemRepository.create(
         itemMachine: const ItemMachine(
       name: "TestMachine",
@@ -43,7 +43,19 @@ class ItemListCubit extends Cubit<ItemListState> {
     ));
   }
 
-  // opens an ItemMachine in the Dashboard menu
+  /// reverts [int] machineType to specific description
+  String machineTypeFilter(int? id) {
+    switch (id) {
+      case 1:
+        return "Printer";
+      case 2:
+        return "Sorter Machine";
+      default:
+        return "Other Machine";
+    }
+  }
+
+  /// Opens an [ItemMachine] in [IntegrationDashboard]
   Future<void> openItem(
       final ItemMachine itemMachine, BuildContext context) async {
     final ItemDetailCubit itemDetailCubit = ItemDetailCubit(itemMachine);

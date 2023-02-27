@@ -16,13 +16,7 @@ class ItemDetailScreen extends StatelessWidget {
         return Scaffold(
           appBar: IntegrationAppBar(
             title: Text(state.itemMachine.name!),
-            actions: [
-              IntegrationAppBarAction(
-                title: "Back",
-                icon: Icons.edit,
-                action: () => Navigator.of(context).pop(),
-              ),
-            ],
+            showBackButton: true,
           ),
           body: Container(
             padding: const EdgeInsets.all(20),

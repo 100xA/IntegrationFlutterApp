@@ -6,10 +6,12 @@ import 'package:integration_flutter_app/misc/design/colors.dart';
 import '../../components/dashboard/repo/item.dart';
 import '../../core/services/service_locator.dart';
 
-class DashboardItem extends StatelessWidget {
+/// Machineitem for the [IntegrationDashboard]
+
+class IntegrationDashboardItem extends StatelessWidget {
   final ItemMachine itemMachine;
 
-  const DashboardItem({super.key, required this.itemMachine});
+  const IntegrationDashboardItem({super.key, required this.itemMachine});
 
   String _checkCurrentProblems(String currentProblems) {
     return currentProblems.isEmpty ? "Keine Probleme zurzeit" : currentProblems;
@@ -17,6 +19,7 @@ class DashboardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ItemListCubit itemListCubit = app.get<ItemListCubit>();
     return Padding(
       padding: const EdgeInsets.all(20),
       child: GestureDetector(
@@ -53,7 +56,7 @@ class DashboardItem extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      "Art: ${itemMachine.machine}",
+                      "Art: ${itemListCubit.machineTypeFilter(itemMachine.machine)}",
                       textAlign: TextAlign.left,
                     )
                   ],

@@ -16,23 +16,23 @@ void main() async {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
 
-      // Set Rotation only to portraitmode
+      /// Set Rotation only to [PotraitMode]
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
         DeviceOrientation.portraitDown,
       ]);
 
-      // sets up the global service locator
+      /// Setup [GlobalServiceLocator] for [Cubits] with [Get-it]
       setupServices();
 
-      // initialize Firebase
+      /// initialize [Firebase]
       await Firebase.initializeApp();
       FirebaseDatabase.instance.setPersistenceEnabled(true);
       FirebaseFirestore.instance.settings =
           const Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
 
-      // run the app
       runApp(
+        /// initialize all [Blocs] necessary for App-Startup
         const GlobalBlocProvider(
           child: IntegrationApp(),
         ),

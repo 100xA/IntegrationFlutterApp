@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// main colors for the app theme
+
 const MaterialColor purpleColor = MaterialColor(0xFF9C27B0, {
   50: Color.fromRGBO(87, 59, 170, .1),
   100: Color.fromRGBO(87, 59, 170, .2),

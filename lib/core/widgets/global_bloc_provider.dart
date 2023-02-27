@@ -16,8 +16,11 @@ class GlobalBlocProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        /// initialize [ItemListCubit] for [IntegrationDashboard]
         BlocProvider<ItemListCubit>.value(
             value: app.get<ItemListCubit>()..initialize()),
+
+        /// intialize [ProfileCubit] for [ProfileScreen]
         BlocProvider<ProfileCubit>.value(
             value: app.get<ProfileCubit>()..initialize())
       ],

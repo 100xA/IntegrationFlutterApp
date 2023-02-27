@@ -4,6 +4,7 @@ import 'package:integration_flutter_app/components/profile/bloc/profile_cubit.da
 import 'package:integration_flutter_app/components/profile/bloc/profile_state.dart';
 import 'package:integration_flutter_app/misc/design/colors.dart';
 import 'package:integration_flutter_app/misc/widgets/integration_app_bar.dart';
+import 'package:integration_flutter_app/misc/widgets/integration_custom_avatar.dart';
 
 import '../../../core/services/service_locator.dart';
 
@@ -23,9 +24,14 @@ class ProfileScreen extends StatelessWidget {
         body: SingleChildScrollView(
             child: Column(
           children: <Widget>[
-            // TODO: Profile Picture
             const SizedBox(
-              height: 300,
+              height: 20,
+            ),
+            const IntegrationCustomAvatar(
+                radius: 100,
+                url: "https://pbs.twimg.com/media/EhcyEQAX0AA2PwP.jpg"),
+            const SizedBox(
+              height: 20,
             ),
             Container(
               height: 600,
@@ -41,7 +47,6 @@ class ProfileScreen extends StatelessWidget {
                   state.profile?.name ?? "Kein name gefunden",
                   style: const TextStyle(fontSize: 20),
                 ),
-                //Image(image: AssetImage("assets/img/lana.jpg")),
                 Text(
                   profileCubit.jobTypeFilter(state.profile?.job),
                   style: const TextStyle(fontSize: 20),
@@ -49,7 +54,6 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-
                 Container(
                   height: 512,
                   decoration: const BoxDecoration(

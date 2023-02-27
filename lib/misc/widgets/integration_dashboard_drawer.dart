@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:integration_flutter_app/components/profile/bloc/profile_cubit.dart';
 import 'package:integration_flutter_app/components/profile/ui/profile_screen.dart';
+import 'package:integration_flutter_app/misc/widgets/integration_custom_avatar.dart';
 
 class IntegrationDashboardDrawer extends StatelessWidget {
   const IntegrationDashboardDrawer({super.key});
@@ -12,14 +12,18 @@ class IntegrationDashboardDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           const SizedBox(
-            height: 100,
+            height: 80,
+          ),
+          const Center(
+            child: IntegrationCustomAvatar(
+                radius: 60,
+                url: "https://pbs.twimg.com/media/EhcyEQAX0AA2PwP.jpg"),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           ListTile(
-            title: const Text("Maschinen"),
-            onTap: () {},
-          ),
-          ListTile(
-            title: const Text("Instandhaltung"),
+            title: const Text("Lager"),
             onTap: () {},
           ),
           ListTile(

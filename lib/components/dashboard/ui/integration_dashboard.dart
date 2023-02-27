@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_list_cubit.dart';
 import 'package:integration_flutter_app/components/dashboard/repo/item.dart';
-import 'package:integration_flutter_app/misc/widgets/dashboard_item.dart';
+import 'package:integration_flutter_app/misc/widgets/integration_dashboard_item.dart';
 import 'package:integration_flutter_app/misc/widgets/integration_dashboard_drawer.dart';
 
 import '../bloc/item_list_state.dart';
@@ -29,7 +29,7 @@ class IntegrationDashboard extends StatelessWidget {
                 itemBuilder: ((context, index) {
                   // ItemMachine = Item Class
                   final ItemMachine itemMachine = state.itemMachineList[index];
-                  return DashboardItem(
+                  return IntegrationDashboardItem(
                     itemMachine: itemMachine,
                   );
                 }),
