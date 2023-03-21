@@ -1,8 +1,5 @@
-//create JobTypefilter + roleTypeFilter,
-
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:integration_flutter_app/components/dashboard/repo/item_repository.dart';
 import 'package:integration_flutter_app/components/profile/bloc/profile_state.dart';
 import 'package:integration_flutter_app/components/profile/repo/profile.dart';
 import 'package:integration_flutter_app/components/profile/repo/profile_repository.dart';

@@ -27,7 +27,6 @@ class IntegrationDashboard extends StatelessWidget {
                 separatorBuilder: (_, __) => const Divider(height: 0),
                 shrinkWrap: true,
                 itemBuilder: ((context, index) {
-                  // ItemMachine = Item Class
                   final ItemMachine itemMachine = state.itemMachineList[index];
                   return IntegrationDashboardItem(
                     itemMachine: itemMachine,

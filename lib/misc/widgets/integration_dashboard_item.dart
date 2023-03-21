@@ -6,7 +6,7 @@ import 'package:integration_flutter_app/misc/design/colors.dart';
 import '../../components/dashboard/repo/item.dart';
 import '../../core/services/service_locator.dart';
 
-/// Machineitem for the [IntegrationDashboard]
+/// Machine item for the [IntegrationDashboard]
 
 class IntegrationDashboardItem extends StatelessWidget {
   final ItemMachine itemMachine;

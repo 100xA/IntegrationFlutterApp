@@ -11,7 +11,7 @@ import '../../../core/services/service_locator.dart';
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
 
-  ProfileCubit profileCubit = app.get<ProfileCubit>();
+  final ProfileCubit profileCubit = app.get<ProfileCubit>();
 
   @override
   Widget build(BuildContext context) {

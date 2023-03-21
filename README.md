@@ -1,4 +1,4 @@
-# integration_flutter_app
+# IntegrationFlutterApp
 
 A Flutter Project for the Seminar "Digitale Assistenzsysteme für den technischen Service".
 

@@ -6,7 +6,7 @@ class IntegrationCustomAvatar extends StatelessWidget {
   final double radius;
 
   const IntegrationCustomAvatar({
-    Key? key,
+    super.key,
     this.url,
     this.radius = 60,
   });

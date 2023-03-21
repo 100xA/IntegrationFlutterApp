@@ -2,16 +2,26 @@ import 'package:equatable/equatable.dart';
 import 'dart:convert';
 
 class ItemMachine extends Equatable {
+  /// The unique ID given by [Firebase]
   final String? id;
+
+  /// Name of the machine
   final String? name;
+
+  /// unique serial number given to each machine
   final int? serialNumber;
+
+  /// String (maybe later a List) of current problems facing the machine
   final String? currentProblems;
+
+  /// Identifier of the machine, stored as a int for querying in [Firebase]
   final int? machine;
 
   static const int machineUndefined = 99;
   static const int machinePrinter = 0;
   static const int machineSorter = 1;
 
+  /// List of machine types for querying in [Firebase]
   static const List<int> machineType = [
     ItemMachine.machineUndefined,
     ItemMachine.machinePrinter,
