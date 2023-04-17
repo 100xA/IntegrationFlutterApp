@@ -16,7 +16,6 @@ class IntegrationDashboardDrawer extends StatelessWidget {
           ),
           const Center(
             child: IntegrationCustomAvatar(
-                radius: 60,
                 url: "https://pbs.twimg.com/media/EhcyEQAX0AA2PwP.jpg"),
           ),
           const SizedBox(

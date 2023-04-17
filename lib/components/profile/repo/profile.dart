@@ -1,6 +1,7 @@
+import "dart:convert";
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import "dart:convert";
 
 class Profile extends Equatable {
   final String? id;

@@ -18,7 +18,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(state.copyWith(loading: false));
   }
 
-  void createTestProfileOnStartup() async {
+  Future<void> createTestProfileOnStartup() async {
     await _profileRepository.create(
       profile: Profile(
           name: "Rohash",

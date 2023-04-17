@@ -19,7 +19,7 @@ class IntegrationDashboardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ItemListCubit itemListCubit = app.get<ItemListCubit>();
+    final ItemListCubit itemListCubit = app.get<ItemListCubit>();
     return Padding(
       padding: const EdgeInsets.all(20),
       child: GestureDetector(

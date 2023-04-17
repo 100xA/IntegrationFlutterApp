@@ -15,21 +15,22 @@ dependencies:
     sdk: flutter
 
 
-
+  bloc: ^8.1.0
+  cached_network_image: ^3.2.3
+  cloud_firestore: ^4.3.1
   cupertino_icons: ^1.0.2
   equatable: '^2.0.3'
-  bloc: ^8.1.0
   flutter_bloc: ^8.1.1
   firebase_core: ^2.4.1
   firebase_database: ^10.0.9
-  cloud_firestore: ^4.3.1
   get_it: ^7.2.0
-  cached_network_image: ^3.2.3
+  
 
 dev_dependencies:
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  lints: ^2.0.1
 
 
 flutter:

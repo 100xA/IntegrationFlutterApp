@@ -1,5 +1,6 @@
-import 'package:equatable/equatable.dart';
 import 'dart:convert';
+
+import 'package:equatable/equatable.dart';
 
 class ItemMachine extends Equatable {
   /// The unique ID given by [Firebase]
