@@ -29,7 +29,7 @@ class IntegrationDashboardDrawer extends StatelessWidget {
             title: const Text("Dashboard"),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => IntegrationDashboard()));
+                  builder: (context) => const IntegrationDashboard()));
             },
           ),
           const Divider(),
