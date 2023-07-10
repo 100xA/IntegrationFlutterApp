@@ -16,7 +16,7 @@ class IntegrationAppBarAction {
 }
 
 /// Global [AppBar] for all Screens with customizable [Actions] and [PopupMenu]
-class IntegrationAppBar extends StatelessWidget with PreferredSizeWidget {
+class IntegrationAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
   final List<IntegrationAppBarAction>? actions;
   final bool showBackButton;

@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "184042334389",
+    "firebase_url": "https://integrationsseminar-af719-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "integrationsseminar-af719",
+    "storage_bucket": "integrationsseminar-af719.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184042334389:android:1722ce4eeaf04354beb6fc",
+        "android_client_info": {
+          "package_name": "com.example.integrationFlutterApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184042334389-6fqq3ncgkmmabqgodqggr53dvmgfbpms.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.integrationFlutterApp",
+            "certificate_hash": "985b46057ec8f685137f3db82e1dbc9279709481"
+          }
+        },
+        {
+          "client_id": "184042334389-d0u7c5ppqf8d2ofife12l96208vpue07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhoRYNbi6A1VQHGow12ITT9M4lH5v4MBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184042334389-d0u7c5ppqf8d2ofife12l96208vpue07.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "184042334389-p46qf316ejs4af4od0591ol212b022tg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.integrationFlutterApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184042334389:android:7c23f3b711834a0fbeb6fc",
+        "android_client_info": {
+          "package_name": "com.example.integration_flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184042334389-d0u7c5ppqf8d2ofife12l96208vpue07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhoRYNbi6A1VQHGow12ITT9M4lH5v4MBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184042334389-d0u7c5ppqf8d2ofife12l96208vpue07.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "184042334389-p46qf316ejs4af4od0591ol212b022tg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.integrationFlutterApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
