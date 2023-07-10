@@ -27,8 +27,13 @@ class IntegrationDashboard extends StatelessWidget {
                 separatorBuilder: (_, __) => const Divider(height: 0),
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
+                  const List<String> imageList = [
+                    "assets/img/image_1.jpeg",
+                    "assets/img/image_2.jpeg",
+                  ];
                   final ItemMachine itemMachine = state.itemMachineList[index];
                   return IntegrationDashboardItem(
+                    picture: imageList[index],
                     itemMachine: itemMachine,
                   );
                 },

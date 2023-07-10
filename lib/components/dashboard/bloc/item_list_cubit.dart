@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_detail_cubit.dart';
@@ -18,7 +19,9 @@ class ItemListCubit extends Cubit<ItemListState> {
   /// initiliazes the [ItemListCubit] for the Subscription
   Future<void> initialize() async {
     emit(state.copyWith(error: "", loading: true));
+
     initItemMachines((p0) => null);
+
     emit(state.copyWith(loading: false));
   }
 
@@ -35,11 +38,25 @@ class ItemListCubit extends Cubit<ItemListState> {
   /// Create simple [ItemMachine] - not production code
   Future<void> createSimpleItemMachineOnStartup() async {
     await _itemRepository.create(
-        itemMachine: const ItemMachine(
-      name: "TestMachine",
-      serialNumber: 69420,
+      itemMachine: ItemMachine(
+        name: "Trumpf - EHT TrumaBend S 85 - 25",
+        serialNumber: 8525,
+        currentProblems: "No Problems",
+        machine: 2,
+        purchaseTime: Timestamp.fromDate(DateTime.utc(2009)),
+        inspectionTime: Timestamp.fromDate(DateTime.utc(2022, 09, 20)),
+        place: "Halle 1",
+      ),
+    );
+    await _itemRepository.create(
+        itemMachine: ItemMachine(
+      name: "CNC Stanz- und Nibbelmaschine",
+      serialNumber: 100030,
       currentProblems: "No Problems",
       machine: 2,
+      purchaseTime: Timestamp.fromDate(DateTime.utc(2009)),
+      inspectionTime: Timestamp.fromDate(DateTime.utc(2020, 09, 20)),
+      place: "Halle 1",
     ));
   }
 

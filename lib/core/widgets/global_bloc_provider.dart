@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_list_cubit.dart';
 import 'package:integration_flutter_app/components/profile/bloc/profile_cubit.dart';
+import 'package:integration_flutter_app/components/storage/bloc/unit_list_cubit.dart';
 import 'package:integration_flutter_app/core/services/service_locator.dart';
 
 class GlobalBlocProvider extends StatelessWidget {
@@ -22,7 +23,11 @@ class GlobalBlocProvider extends StatelessWidget {
 
         /// intialize [ProfileCubit] for [ProfileScreen]
         BlocProvider<ProfileCubit>.value(
-            value: app.get<ProfileCubit>()..initialize())
+            value: app.get<ProfileCubit>()..initialize()),
+
+        BlocProvider<TileListCubit>(
+          create: (_) => TileListCubit(),
+        ),
       ],
       child: child,
     );

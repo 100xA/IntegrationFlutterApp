@@ -10,8 +10,10 @@ import '../../core/services/service_locator.dart';
 
 class IntegrationDashboardItem extends StatelessWidget {
   final ItemMachine itemMachine;
+  final String picture;
 
-  const IntegrationDashboardItem({super.key, required this.itemMachine});
+  const IntegrationDashboardItem(
+      {super.key, required this.itemMachine, required this.picture});
 
   String _checkCurrentProblems(String currentProblems) {
     return currentProblems.isEmpty ? "Keine Probleme zurzeit" : currentProblems;
@@ -23,7 +25,6 @@ class IntegrationDashboardItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: GestureDetector(
-        onTap: () => app.get<ItemListCubit>().openItem(itemMachine, context),
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: const BoxDecoration(
@@ -33,9 +34,33 @@ class IntegrationDashboardItem extends StatelessWidget {
             ),
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Image(image: AssetImage("assets/img/test-drucker.webp")),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  SizedBox(
+                    width: 200,
+                    child: Image(image: AssetImage(picture)),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      child: Text(
+                        "Aktuelle Probleme: ${_checkCurrentProblems(itemMachine.currentProblems!)}",
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -52,25 +77,52 @@ class IntegrationDashboardItem extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     Text(
+                      "Art: ${itemListCubit.machineTypeFilter(itemMachine.machine)}",
+                      textAlign: TextAlign.left,
+                    ),
+                    Text(
                       "Nummer: ${itemMachine.serialNumber}",
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      "Art: ${itemListCubit.machineTypeFilter(itemMachine.machine)}",
+                      "Kaufdatum: ${itemMachine.purchaseTime?.toDate().year}",
                       textAlign: TextAlign.left,
-                    )
+                    ),
+                    Text(
+                      "Letzte Instandhaltung: ${itemMachine.inspectionTime?.toDate()}",
+                      textAlign: TextAlign.left,
+                    ),
+                    Text(
+                      "Standort: ${itemMachine.place}",
+                      textAlign: TextAlign.left,
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
               Container(
-                padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Text(
-                  "Aktuelle Probleme: ${_checkCurrentProblems(itemMachine.currentProblems!)}",
-                  textAlign: TextAlign.left,
+                color: Colors.white,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text("Störungsbeseitigung/Reperatur"),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                color: Colors.white,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text("Ersatzteile"),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Container(
+                color: Colors.white,
+                child: TextButton(
+                  onPressed: () {
+                    app.get<ItemListCubit>().openItem(itemMachine, context);
+                  },
+                  child: const Text("Instandhaltung durchführen"),
                 ),
               ),
             ],
