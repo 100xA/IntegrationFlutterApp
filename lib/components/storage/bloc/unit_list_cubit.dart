@@ -56,11 +56,50 @@ class TileListCubit extends Cubit<List<TileModel>> {
         imagePath: "assets/img/storage/storage_image_12.jpeg"),
   ];
 
+  static final List<TileModel> _idList = [
+    TileModel(
+        description: 'Kupplung, 16-32 mm',
+        number: 89471,
+        imagePath: "assets/img/storage/storage_image_7.jpeg"),
+    TileModel(
+        description: 'M8 Hülsen Spreizfunktion',
+        number: 73428,
+        imagePath: "assets/img/storage/storage_image_8.jpeg"),
+    TileModel(
+        description: 'Metallplatte mit Löchern 148x105mm',
+        number: 93812,
+        imagePath: "assets/img/storage/storage_image_9.jpeg"),
+    TileModel(
+        description: 'Metallverbundrohr PE-RT 16x2.0 5m_Stange',
+        number: 98316,
+        imagePath: "assets/img/storage/storage_image_10.jpeg"),
+    TileModel(
+        description: 'Press-Übergangsnippel',
+        number: 97457,
+        imagePath: "assets/img/storage/storage_image_11.jpeg"),
+    TileModel(
+        description: 'RAVENOL Super HD 30 Öl',
+        number: 83284,
+        imagePath: "assets/img/storage/storage_image_12.jpeg"),
+  ];
+
   void searchTiles(String query) {
     if (query.isEmpty) {
       emit(_initialList);
     } else {
       final filteredList = _initialList
+          .where((tile) =>
+              tile.description.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+      emit(filteredList);
+    }
+  }
+
+  void searchIdTiles(String query) {
+    if (query.isEmpty) {
+      emit(_idList);
+    } else {
+      final filteredList = _idList
           .where((tile) =>
               tile.description.toLowerCase().contains(query.toLowerCase()))
           .toList();

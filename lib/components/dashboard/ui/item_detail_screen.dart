@@ -278,22 +278,6 @@ class ItemDetailScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {},
-                  child: const Text(
-                    "Komplette Instandhaltung durchführen",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: purpleColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  onPressed: () {},
                   child: Text(
                     "Nächste Instandhaltung: ${state.itemMachine.inspectionTime}",
                     style: const TextStyle(

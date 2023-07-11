@@ -7,6 +7,10 @@ import '../repo/unit.dart';
 
 class TileScreen extends StatelessWidget {
   final TextEditingController _searchController = TextEditingController();
+  final int? id;
+  final String? name;
+
+  TileScreen({this.id, this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +22,8 @@ class TileScreen extends StatelessWidget {
       ),
       drawer: const IntegrationDashboardDrawer(),
       body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              controller: _searchController,
-              onChanged: (value) {
-                tileListCubit.searchTiles(value);
-              },
-              decoration: const InputDecoration(
-                labelText: 'Suche nach Lagermaterial',
-                prefixIcon: Icon(Icons.search),
-              ),
-            ),
-          ),
+        children: <Widget>[
+          _widgetSearch(id, name, context),
           Expanded(
             child: BlocBuilder<TileListCubit, List<TileModel>>(
               builder: (context, tileList) {
@@ -61,6 +53,40 @@ class TileScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+Widget _widgetSearch(int? id, String? name, BuildContext context) {
+  final tileListCubit = context.read<TileListCubit>();
+  final TextEditingController _searchController = TextEditingController();
+  if (id == 2) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: TextField(
+        controller: _searchController,
+        onChanged: (value) {
+          tileListCubit.searchIdTiles(value);
+        },
+        decoration: InputDecoration(
+          labelText: 'Suche nach Ersatzteilen für $name',
+          prefixIcon: Icon(Icons.search),
+        ),
+      ),
+    );
+  } else {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: TextField(
+        controller: _searchController,
+        onChanged: (value) {
+          tileListCubit.searchTiles(value);
+        },
+        decoration: const InputDecoration(
+          labelText: 'Suche nach Lagermaterial',
+          prefixIcon: Icon(Icons.search),
+        ),
       ),
     );
   }

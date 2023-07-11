@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_list_cubit.dart';
+import 'package:integration_flutter_app/components/storage/ui/unit_list.dart';
 
 import 'package:integration_flutter_app/misc/design/colors.dart';
 
@@ -16,7 +17,7 @@ class IntegrationDashboardItem extends StatelessWidget {
       {super.key, required this.itemMachine, required this.picture});
 
   String _checkCurrentProblems(String currentProblems) {
-    return currentProblems.isEmpty ? "Keine Probleme zurzeit" : currentProblems;
+    return currentProblems.isEmpty ? "No Problems" : currentProblems;
   }
 
   @override
@@ -47,18 +48,35 @@ class IntegrationDashboardItem extends StatelessWidget {
                   const SizedBox(
                     width: 20,
                   ),
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Text(
-                        "Aktuelle Probleme: ${_checkCurrentProblems(itemMachine.currentProblems!)}",
-                        textAlign: TextAlign.left,
+                  if (itemMachine.currentProblems! == "No Problems")
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Text(
+                          "Aktuelle Probleme: ${_checkCurrentProblems(itemMachine.currentProblems!)}",
+                          textAlign: TextAlign.left,
+                        ),
                       ),
                     ),
-                  ),
+                  if (itemMachine.currentProblems!.isNotEmpty &&
+                      itemMachine.currentProblems! != "No Problems")
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                            color: Colors.yellow,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Text(
+                          "Aktuelle Probleme: ${_checkCurrentProblems(itemMachine.currentProblems!)}",
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    ),
                 ],
               ),
               const SizedBox(
@@ -100,18 +118,27 @@ class IntegrationDashboardItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              Container(
-                color: Colors.white,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text("Störungsbeseitigung/Reperatur"),
+              if (itemMachine.currentProblems!.isNotEmpty &&
+                  itemMachine.currentProblems! != "No Problems")
+                Container(
+                  color: Colors.white,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text("Störungsbeseitigung/Reperatur"),
+                  ),
                 ),
-              ),
               const SizedBox(height: 10),
               Container(
                 color: Colors.white,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => TileScreen(
+                        id: itemMachine.machine,
+                        name: itemMachine.name,
+                      ),
+                    ));
+                  },
                   child: const Text("Ersatzteile"),
                 ),
               ),
