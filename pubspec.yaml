@@ -44,5 +44,6 @@ flutter:
     - assets/icons/
     - assets/img/storage/
     - assets/img/inspection/
+    - assets/img/error/
 
 

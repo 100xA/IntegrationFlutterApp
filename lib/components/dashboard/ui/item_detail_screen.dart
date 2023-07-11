@@ -63,9 +63,11 @@ class ItemDetailScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MeasureScreen(),
-                          ));
+                          if (state.itemMachine.serialNumber == 8525) {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MeasureScreen(),
+                            ));
+                          }
                         },
                         child: const Text(
                           "Messen",
@@ -83,9 +85,11 @@ class ItemDetailScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CheckScreen(),
-                          ));
+                          if (state.itemMachine.serialNumber == 8525) {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CheckScreen(),
+                            ));
+                          }
                         },
                         child: const Text(
                           "Prüfen",
@@ -123,9 +127,11 @@ class ItemDetailScreen extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CleanScreen(),
-                              ));
+                              if (state.itemMachine.serialNumber == 8525) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => CleanScreen(),
+                                ));
+                              }
                             },
                             child: const Text(
                               "Reinigen",
@@ -143,9 +149,11 @@ class ItemDetailScreen extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => LubricateScreen(),
-                              ));
+                              if (state.itemMachine.serialNumber == 8525) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => LubricateScreen(),
+                                ));
+                              }
                             },
                             child: const Text(
                               "Schmieren",
@@ -167,9 +175,11 @@ class ItemDetailScreen extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => FillScreen(),
-                              ));
+                              if (state.itemMachine.serialNumber == 8525) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => FillScreen(),
+                                ));
+                              }
                             },
                             child: const Text(
                               "Nachfüllen",
@@ -187,9 +197,11 @@ class ItemDetailScreen extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => AdjustScreen(),
-                              ));
+                              if (state.itemMachine.serialNumber == 8525) {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => AdjustScreen(),
+                                ));
+                              }
                             },
                             child: const Text(
                               "Nachstellen",
@@ -200,75 +212,10 @@ class ItemDetailScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Text(
-                          "Konservieren",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 30),
-                const Text(
-                  "Instandhaltung",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 10),
-                Container(
-                  decoration: BoxDecoration(
-                    color: purpleColor,
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    border: Border.all(color: purpleColor),
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Text(
-                          "Messen",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Text(
-                          "Prüfen",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 const SizedBox(height: 20),
                 TextButton(
                   style: TextButton.styleFrom(
@@ -279,7 +226,7 @@ class ItemDetailScreen extends StatelessWidget {
                   ),
                   onPressed: () {},
                   child: Text(
-                    "Nächste Instandhaltung: ${state.itemMachine.inspectionTime}",
+                    "Nächste Instandhaltung: ${state.itemMachine.inspectionTime!.toDate()}",
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

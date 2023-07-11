@@ -5,6 +5,7 @@ import 'package:integration_flutter_app/components/storage/ui/unit_list.dart';
 import 'package:integration_flutter_app/misc/design/colors.dart';
 
 import '../../components/dashboard/repo/item.dart';
+import '../../components/dashboard/ui/errors/error_screen.dart';
 import '../../core/services/service_locator.dart';
 
 /// Machine item for the [IntegrationDashboard]
@@ -123,7 +124,11 @@ class IntegrationDashboardItem extends StatelessWidget {
                 Container(
                   color: Colors.white,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ErrorScreen(),
+                      ));
+                    },
                     child: const Text("Störungsbeseitigung/Reperatur"),
                   ),
                 ),
