@@ -6,10 +6,9 @@ class TaskCubit extends Cubit<TaskState> {
   DateTime _selectedDay = DateTime.now();
   final Map<DateTime, List<dynamic>> _events = {};
 
-  TaskCubit()
-      : super(
-            TaskState(focusedDay: DateTime.now(), selectedDay: DateTime.now()));
+  TaskCubit() : super(TaskState(focusedDay: DateTime.now()));
 
+  /// Initialize the state, with necessary parameters focusedDay and selectedDay
   Future<void> initialize() async {
     emit(state.copyWith(
         focusedDay: DateTime.now(), selectedDay: DateTime.now()));
@@ -20,6 +19,7 @@ class TaskCubit extends Cubit<TaskState> {
     emit(state.copyWith(selectedDay: selectedDay, focusedDay: focusedDay));
   }
 
+  /// Add Task to the List events
   void addTask(String taskName) {
     if (_events[_selectedDay] == null) {
       _events[_selectedDay] = [];
@@ -28,6 +28,7 @@ class TaskCubit extends Cubit<TaskState> {
     emit(state.copyWith(events: _events));
   }
 
+  /// Show Dialog with Options Cancel and Add Tasks to List events
   void showAddTaskDialog(BuildContext context) {
     String taskName = "";
 

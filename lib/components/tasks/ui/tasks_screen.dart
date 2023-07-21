@@ -21,8 +21,7 @@ class TaskScreen extends StatelessWidget {
           BlocBuilder<TaskCubit, TaskState>(
             builder: (context, state) {
               return TableCalendar(
-                calendarFormat: state.calendarFormat,
-                focusedDay: state.focusedDay,
+                focusedDay: state.focusedDay!,
                 firstDay: DateTime.utc(2021),
                 lastDay: DateTime.utc(2030),
                 selectedDayPredicate: (day) {
@@ -34,7 +33,7 @@ class TaskScreen extends StatelessWidget {
                       .updateSelectedDay(selectedDay, focusedDay);
                 },
                 eventLoader: (day) {
-                  return state.events[day] ?? [];
+                  return state.events?[day] ?? [];
                 },
               );
             },
@@ -52,11 +51,11 @@ class TaskScreen extends StatelessWidget {
             child: BlocBuilder<TaskCubit, TaskState>(
               builder: (context, state) {
                 return ListView.builder(
-                  itemCount: state.events[state.selectedDay]?.length ?? 0,
+                  itemCount: state.events?[state.selectedDay]?.length ?? 0,
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(
-                        "- ${state.events[state.selectedDay]![index]}",
+                        "- ${state.events![state.selectedDay]![index]}",
                         style: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold),
                       ),

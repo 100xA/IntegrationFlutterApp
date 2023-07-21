@@ -2,15 +2,15 @@ import 'package:equatable/equatable.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class TaskState extends Equatable {
-  final CalendarFormat calendarFormat;
-  final DateTime focusedDay;
-  final DateTime selectedDay;
-  final Map<DateTime, List<dynamic>> events;
+  final CalendarFormat? calendarFormat;
+  final DateTime? focusedDay;
+  final DateTime? selectedDay;
+  final Map<DateTime, List<dynamic>>? events;
 
   const TaskState({
     this.calendarFormat = CalendarFormat.month,
-    required this.focusedDay,
-    required this.selectedDay,
+    this.focusedDay,
+    this.selectedDay,
     this.events = const {},
   });
 
