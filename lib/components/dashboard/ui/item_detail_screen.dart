@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_detail_cubit.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_detail_state.dart';
-import 'package:integration_flutter_app/components/dashboard/ui/tests/adjust_screen.dart';
-import 'package:integration_flutter_app/components/dashboard/ui/tests/check_screen.dart';
-import 'package:integration_flutter_app/components/dashboard/ui/tests/clean_screen.dart';
-import 'package:integration_flutter_app/components/dashboard/ui/tests/fill_screen.dart';
-import 'package:integration_flutter_app/components/dashboard/ui/tests/lubricate_screen.dart';
-import 'package:integration_flutter_app/components/dashboard/ui/tests/measure_screen.dart';
+import 'package:integration_flutter_app/components/dashboard/ui/dashboardsFixes/fix_template_screen.dart';
+
+import 'package:integration_flutter_app/misc/constants.dart';
 import 'package:integration_flutter_app/misc/design/colors.dart';
 import 'package:integration_flutter_app/misc/widgets/integration_app_bar.dart';
 
+/// Detailed Information about each [ItemMachine] found in IntegrationDashboard
 class ItemDetailScreen extends StatelessWidget {
   final ItemDetailCubit itemDetailCubit;
 
@@ -65,13 +63,15 @@ class ItemDetailScreen extends StatelessWidget {
                         onPressed: () {
                           if (state.itemMachine.serialNumber == 8525) {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => MeasureScreen(),
+                              builder: (context) => FixTemplateScreen(
+                                fixedDescription: fixedDescriptionsList[5],
+                              ),
                             ));
                           }
                         },
-                        child: const Text(
-                          "Messen",
-                          style: TextStyle(
+                        child: Text(
+                          fixedDescriptionsList[5].title,
+                          style: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
@@ -86,14 +86,17 @@ class ItemDetailScreen extends StatelessWidget {
                         ),
                         onPressed: () {
                           if (state.itemMachine.serialNumber == 8525) {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CheckScreen(),
-                            ));
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => FixTemplateScreen(
+                                      fixedDescription:
+                                          fixedDescriptionsList[4])),
+                            );
                           }
                         },
-                        child: const Text(
-                          "Prüfen",
-                          style: TextStyle(
+                        child: Text(
+                          fixedDescriptionsList[4].title,
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -129,13 +132,15 @@ class ItemDetailScreen extends StatelessWidget {
                             onPressed: () {
                               if (state.itemMachine.serialNumber == 8525) {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => CleanScreen(),
+                                  builder: (context) => FixTemplateScreen(
+                                    fixedDescription: fixedDescriptionsList[3],
+                                  ),
                                 ));
                               }
                             },
-                            child: const Text(
-                              "Reinigen",
-                              style: TextStyle(
+                            child: Text(
+                              fixedDescriptionsList[3].title,
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -151,13 +156,15 @@ class ItemDetailScreen extends StatelessWidget {
                             onPressed: () {
                               if (state.itemMachine.serialNumber == 8525) {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => LubricateScreen(),
+                                  builder: (context) => FixTemplateScreen(
+                                      fixedDescription:
+                                          fixedDescriptionsList[2]),
                                 ));
                               }
                             },
-                            child: const Text(
-                              "Schmieren",
-                              style: TextStyle(
+                            child: Text(
+                              fixedDescriptionsList[2].title,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -177,13 +184,15 @@ class ItemDetailScreen extends StatelessWidget {
                             onPressed: () {
                               if (state.itemMachine.serialNumber == 8525) {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => FillScreen(),
+                                  builder: (context) => FixTemplateScreen(
+                                    fixedDescription: fixedDescriptionsList[1],
+                                  ),
                                 ));
                               }
                             },
-                            child: const Text(
-                              "Nachfüllen",
-                              style: TextStyle(
+                            child: Text(
+                              fixedDescriptionsList[1].title,
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -199,13 +208,15 @@ class ItemDetailScreen extends StatelessWidget {
                             onPressed: () {
                               if (state.itemMachine.serialNumber == 8525) {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => AdjustScreen(),
+                                  builder: (context) => FixTemplateScreen(
+                                      fixedDescription:
+                                          fixedDescriptionsList[0]),
                                 ));
                               }
                             },
-                            child: const Text(
-                              "Nachstellen",
-                              style: TextStyle(
+                            child: Text(
+                              fixedDescriptionsList[0].title,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

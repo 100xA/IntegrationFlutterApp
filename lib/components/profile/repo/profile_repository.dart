@@ -5,12 +5,12 @@ import 'package:integration_flutter_app/components/profile/repo/profile.dart';
 class ProfileRepository {
   static final ProfileRepository _instance = ProfileRepository._internal();
 
-  // Getter Singleton Instance of ProfileRepo
+  /// Getter Singleton Instance of ProfileRepo
   static ProfileRepository get instance => _instance;
 
   static ProfileRepository get I => _instance;
 
-  // Internal Constructor
+  /// Internal Constructor
   ProfileRepository._internal();
 
   final CollectionReference _profileCollection =
@@ -37,37 +37,43 @@ class ProfileRepository {
       _profileCollection.snapshots().map(
             (QuerySnapshot query) => query.docs
                 .map((QueryDocumentSnapshot doc) {
-                  // get data
+                  /// get data
                   final data = doc.data();
-                  // if data is null return null
+
+                  /// if data is null return null
                   return data != null
                       ? Profile.fromMap(data as Map<String, dynamic>)
                           .copyWith(id: doc.id)
                       : null;
                 })
-                // remove all null values
+
+                /// remove all null values
                 .where((e) => e != null)
-                // cast to not nullable list
+
+                /// cast to not nullable list
                 .cast<Profile>()
                 .toList(),
           );
 
-  // getAll Profiles in a List
+  /// getAll Profiles in a List
   Future<List<Profile>> getAll() async {
     final QuerySnapshot snapshot = await _profileCollection.get();
     return snapshot.docs
         .map((QueryDocumentSnapshot doc) {
-          // get data
+          /// get data
           final data = doc.data();
-          // if data is null return null
+
+          /// if data is null return null
           return data != null
               ? Profile.fromMap(data as Map<String, dynamic>)
                   .copyWith(id: doc.id)
               : null;
         })
-        // remove all null values
+
+        /// remove all null values
         .where((e) => e != null)
-        // cast to not nullable list
+
+        /// cast to not nullable list
         .cast<Profile>()
         .toList();
   }

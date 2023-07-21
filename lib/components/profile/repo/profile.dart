@@ -4,11 +4,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class Profile extends Equatable {
+  /// Unique id given by [Firebase]
   final String? id;
+
+  /// String name of each Users, composed of first and second name
   final String? name;
+
+  /// Country of origin
   final String? origin;
+
+  /// Timestamp of birthday
   final Timestamp? birthday;
+
+  /// Int for job - partTime, fullTime and contractTime
   final int? job;
+
+  /// Int for role - adminRole, userRole, spectatorRole
   final int? role;
 
   static const int partTime = 0;

@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  state.profile?.name ?? "Kein name gefunden",
+                  state.profile?.name ?? "Kein Name",
                   style: const TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -68,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
                       color: Colors.white),
                   width: double.infinity,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 20),
                     child: Column(
                       children: <Widget>[
                         const SizedBox(
@@ -81,41 +81,27 @@ class ProfileScreen extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             "Geburtsland: ${state.profile?.origin}",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 15,
                             ),
                             textAlign: TextAlign.left,
                           ),
                         ),
-                        Divider(
+                        const Divider(
                           thickness: 2,
                         ),
                         const SizedBox(height: 20),
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "Geburtstag: 01.04.2020",
-                            style: TextStyle(
+                            "Geburtstag: ${profileCubit.convertDate(state.profile!.birthday!.toDate())}",
+                            style: const TextStyle(
                               fontSize: 15,
                             ),
                             textAlign: TextAlign.start,
                           ),
                         ),
-                        Divider(
-                          thickness: 2,
-                        ),
-                        const SizedBox(height: 20),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Geburtsort: Berlin",
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Divider(
+                        const Divider(
                           thickness: 2,
                         ),
                         const SizedBox(height: 20),
@@ -123,11 +109,11 @@ class ProfileScreen extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             "Berechtigungsrolle: ${profileCubit.roleTypeFilter(state.profile?.role)}",
-                            style: TextStyle(fontSize: 15),
+                            style: const TextStyle(fontSize: 15),
                             textAlign: TextAlign.left,
                           ),
                         ),
-                        Divider(
+                        const Divider(
                           thickness: 2,
                         ),
                       ],

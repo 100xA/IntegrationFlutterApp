@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:integration_flutter_app/misc/constants.dart';
+import 'package:integration_flutter_app/misc/widgets/integration_app_bar.dart';
 
-class CleanScreen extends StatelessWidget {
+/// Template UI for all [fixedDescriptionModel] in [constants.dart]
+
+class FixTemplateScreen extends StatelessWidget {
+  final FixedDescription fixedDescription;
+  const FixTemplateScreen({super.key, required this.fixedDescription});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Reinigen'),
+      appBar: IntegrationAppBar(
+        title: Text(fixedDescription.title),
+        showBackButton: true,
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -15,14 +23,14 @@ class CleanScreen extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(top: 20)),
               const SizedBox(height: 20),
               Image.asset(
-                'assets/img/inspection/inspection_clean_1.jpeg',
+                fixedDescription.imagePath,
                 width: 200,
               ),
               const SizedBox(height: 20),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  "Für die Reinigung kann Druckluft mit einem maximalen Druck von 3 Bar verwendet werden; die Schutzbrille ist nötig. Benutze keine Putzmittel oder chemische Substanzen, die die Kabel beschädigen können. Reinigung der Filter des Schaltschranks und des Wechselrichters. Zerlege und putze die Luftfilter des Schaltschranks und des Wechselrichters.",
+                  fixedDescription.description,
                   textAlign: TextAlign.left,
                 ),
               ),

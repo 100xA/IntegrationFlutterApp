@@ -5,17 +5,14 @@ import 'package:integration_flutter_app/misc/widgets/integration_dashboard_drawe
 import '../bloc/unit_list_cubit.dart';
 import '../repo/unit.dart';
 
-class TileScreen extends StatelessWidget {
-  final TextEditingController _searchController = TextEditingController();
+class StorageSearchScreen extends StatelessWidget {
   final int? id;
   final String? name;
 
-  TileScreen({this.id, this.name});
+  const StorageSearchScreen({super.key, this.id, this.name});
 
   @override
   Widget build(BuildContext context) {
-    final tileListCubit = context.read<TileListCubit>();
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lager'),
@@ -60,18 +57,18 @@ class TileScreen extends StatelessWidget {
 
 Widget _widgetSearch(int? id, String? name, BuildContext context) {
   final tileListCubit = context.read<TileListCubit>();
-  final TextEditingController _searchController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
   if (id == 2) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextField(
-        controller: _searchController,
+        controller: searchController,
         onChanged: (value) {
           tileListCubit.searchIdTiles(value);
         },
         decoration: InputDecoration(
           labelText: 'Suche nach Ersatzteilen für $name',
-          prefixIcon: Icon(Icons.search),
+          prefixIcon: const Icon(Icons.search),
         ),
       ),
     );
@@ -79,7 +76,7 @@ Widget _widgetSearch(int? id, String? name, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextField(
-        controller: _searchController,
+        controller: searchController,
         onChanged: (value) {
           tileListCubit.searchTiles(value);
         },

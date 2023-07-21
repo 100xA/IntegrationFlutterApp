@@ -1,10 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:integration_flutter_app/components/dashboard/repo/item.dart';
 
+/// Describes the state of all ItemMachines found in [IntegrationDashboard]
 class ItemListState extends Equatable {
+  /// State used for future adaption of loading widgets in case [ItemMachineList] loads slowly
   final bool loading;
+
+  /// String to catch error from loading data from [ItemMachineList]
   final String error;
-  final String search;
 
   final List<ItemMachine> itemMachineList;
 
@@ -12,7 +15,6 @@ class ItemListState extends Equatable {
     this.itemMachineList = const [],
     this.loading = false,
     this.error = "",
-    this.search = "",
   });
 
   ItemListState copyWith({
@@ -25,7 +27,6 @@ class ItemListState extends Equatable {
       itemMachineList: itemMachineList ?? this.itemMachineList,
       loading: loading ?? this.loading,
       error: error ?? this.error,
-      search: search ?? this.search,
     );
   }
 
@@ -37,6 +38,5 @@ class ItemListState extends Equatable {
         itemMachineList,
         loading,
         error,
-        search,
       ];
 }

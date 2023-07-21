@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
+/// Template screen for individual [ErrorScreen]
+/// in this case "Fehler 1"
+
 class ErrorScreen extends StatelessWidget {
+  const ErrorScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fehler 1'),
+        title: const Text("Fehler 1"),
       ),
       body: SingleChildScrollView(
         child: Center(

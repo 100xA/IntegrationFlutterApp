@@ -2,6 +2,8 @@ import 'package:equatable/equatable.dart';
 
 import '../repo/item.dart';
 
+/// Describes the state of ItemMachine object found in [item.dart]
+
 class ItemDetailState extends Equatable {
   final ItemMachine itemMachine;
 

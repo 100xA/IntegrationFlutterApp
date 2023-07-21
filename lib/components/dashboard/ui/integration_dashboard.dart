@@ -22,6 +22,7 @@ class IntegrationDashboard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              /// Creates a specific List of [ItemMachine] based on [IntegrationDashboardItem] Widget
               ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 separatorBuilder: (_, __) => const Divider(height: 0),

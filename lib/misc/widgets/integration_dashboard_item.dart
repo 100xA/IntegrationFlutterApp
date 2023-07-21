@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:integration_flutter_app/components/dashboard/bloc/item_list_cubit.dart';
-import 'package:integration_flutter_app/components/storage/ui/unit_list.dart';
+import 'package:integration_flutter_app/components/storage/ui/storage_search_screen.dart';
 
 import 'package:integration_flutter_app/misc/design/colors.dart';
 
 import '../../components/dashboard/repo/item.dart';
-import '../../components/dashboard/ui/errors/error_screen.dart';
+import '../../components/dashboard/ui/dasboardErrors/error_screen.dart';
 import '../../core/services/service_locator.dart';
 
 /// Machine item for the [IntegrationDashboard]
@@ -126,7 +126,7 @@ class IntegrationDashboardItem extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ErrorScreen(),
+                        builder: (context) => const ErrorScreen(),
                       ));
                     },
                     child: const Text("Störungsbeseitigung/Reperatur"),
@@ -138,7 +138,7 @@ class IntegrationDashboardItem extends StatelessWidget {
                 child: TextButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => TileScreen(
+                      builder: (context) => StorageSearchScreen(
                         id: itemMachine.machine,
                         name: itemMachine.name,
                       ),
