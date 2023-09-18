@@ -45,8 +45,8 @@ class IntegrationDashboardDrawer extends StatelessWidget {
           ListTile(
             title: const Text("Aufgabenverwaltung"),
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => TaskScreen()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const TaskScreen()));
             },
           ),
           const Divider(),
